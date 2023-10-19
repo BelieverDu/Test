@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
+  /*用中文替换原先英文字体*/
+  :root {
+  --primary-color: #4460f1;
+  --white-color: #ffffff;
+
+  --light-text-color: #9398b3;
+  --light-bg-color: #f2f4ff;
+  --dark-color: #333333;
+
+  --background-color: #fcfcff;
+  }
+
+  * {
+  margin: 0;
+  padding: 0;
+  }
+
+  *, ::before::after {
+  box-sizing: border-box;
+  }
+
+  body {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+
+
+  user-select: none;
+  -webkit-user-drag: none;
+  }
+
+  a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  }
+
+  ul {
+  list-style: none;
+  }
+
+  h1 {
+  font-size: 3em;
+  font-weight: 700;
+  line-height: normal;
+  color: black;
+  }
+
+  .site {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  }
+
+  .container {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+  }
+
+  .login {
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+  .hero {
+  flex: 1 0 66.6666%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 70px 0;
+  }
+
+  .hero::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 280px;
+  height: 100px;
+  background: linear-gradient(to right, #c471ed, #f64f59);
+  z-index: -1;
+  filter: blur(70px);
+  }
+
+  .hero a {
+  font-weight: 500;
+
+  transition: color .3s;
+  }
+
+  .hero a:hover,
+  form .password a:hover {
+
+  text-decoration: underline;
+  }
+
+  .main {
+  flex: 1 0 33.3333%;
+  }
+
+  .main form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  }
+
+  .main form p {
+  position: relative;
+  }
+
+  form input {
+  font: inherit;
+  font-size: 14px;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0 20px;
+  line-height: 60px;
+  border-radius: 10px;
+  /*修复input 加入padding之后大小变化的问题*/
+  box-sizing: border-box;
+  }
+
+  input::placeholder {
+
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: inherit;
+  }
+
+  form input:not(.submit) {
+
+  }
+
+  form .password i {
+  position: absolute;
+  top: calc(60px / 2);
+  right: 20px;
+  margin-top: -8px;
+  line-height: 1;
+
+  cursor: pointer;
+  }
+
+  form .password a {
+  font-size: 13px;
+
+  float: right;
+  margin: 5px 20px 0 0;
+  }
+
+  form input.submit {
+  font-weight: 700;
+
+  box-shadow:  0 20px 30px -10px;
+  cursor: pointer;
+  transition: box-shadow .3s;
+  }
+
+  form input.submit:hover {
+  box-shadow: 0 10px 30px -10px;
+  }
+
+  .separator {
+  position: relative;
+  margin: 50px 0 30px;
+  }
+
+  .separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+
+  opacity: .3;
+  z-index: 1;
+  }
+
+  .separator p {
+  font-size: 14px;
+  width: fit-content;
+  padding: 0 10px;
+
+
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  }
+
+  .options ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  }
+
+  .options ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+
+  box-shadow:  0 10px 20px -10px;
+  transition: all .3s ease-out;
+  }
+
+
+  .options ul li a:hover {
+
+  box-shadow: none;
+  }
+  /*用STEAM PSN XBOX替换原先APPLE GOOGLE FACEBOOK图标*/
+
+  .options ul li:nth-child(1) a:hover {
+  background-color: #00439c;
+
+
+  }
+
+  .options ul li:nth-child(2) a:hover {
+  background-color: #107c10;}
+
+
+
+  </style>
+</head>
+<body>
+<div id="page" class="site">
+  <div class="container" >
+    <div class="login">
+      <div class="hero">
+        <h1>你好 世界<br>Hello World</h1>
+        <p>如果你没有账号<br>可以<a href="注册表.html/">点击这里</a>进行注册.</p >
+      </div>
+      <div class="main">
+        <form action="">
+          <p class="radius">
+            <input type="email" id="email" placeholder="邮箱" >
+          </p >
+          <p class="password">
+            <input type="password" id="pwd" placeholder="密码">
+            <a href="#">找回密码</a>
+          </p >
+          <a href="#">
+            <input type="button" class="submit" value="登录" onclick="reload()">
+          </a >
+        </form>
+        <div class="options">
+          <div class="separator">
+            <p>使用其他方式登录</p >
+          </div>
+          <ul>
+
+            <li><a href="#"><i class="ri-qq-fill ri-2x"></i></a></li>
+            <li><a href="#"><i class="ri-wechat-fill ri-2x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function reload() {
+    var email = document.getElementById("email").value;
+
+    if (email == "") {
+      alert("Email地址不能为空") ;
+    }
+    if (email.indexOf("@") == -1) {
+      alert("Email地址格式不正确，必须包含@");
+    }
+    if (email.indexOf(".") == -1) {
+      alert("Email地址格式不正确，必须包含.");
+
+    }
+    return true;
+    var pwd = document.getElementById("pwd").value;
+
+
+    if (pwd == "") {
+      //使用innerHTML属性设置<span>标签中的内容
+      alert("密码不能为空");
+
+    }
+    if (pwd.length < 6) {
+      alert("密码必须大于6个字符");
+    }
+
+  }
+   /*document.getElementById("email").onblur=function (){
+       var email = document.getElementById("email").value;
+
+       if (email == "") {
+          alert("Email地址不能为空") ;
+       }
+       if (email.indexOf("@") == -1) {
+           alert("Email地址格式不正确，必须包含@");
+       }
+       if (email.indexOf(".") == -1) {
+           alert("Email地址格式不正确，必须包含.");
+
+       }
+   }
+  document.getElementById("pwd").onblur=function (){
+      var pwd = document.getElementById("pwd").value;
+
+
+      if (pwd == "") {
+          //使用innerHTML属性设置<span>标签中的内容
+          alert("密码不能为空");
+
+      }
+      if (pwd.length < 6) {
+          alert("密码必须大于6个字符");
+      }
+  }
+*/
+</script>
+</body>
+</html>

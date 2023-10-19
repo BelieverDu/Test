@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板插值</title>
+
+</head>
+<body>
+    <div>
+        <h1 id="Application" style="text-align: center;">这里是模块的内容：{{count}}次点击</h1>
+        <button v-on:click="clickButton">按钮</button>
+    </div>
+<script>
+    const App ={
+        data(){
+            return {
+                count:0
+            }
+        },
+        methods:{
+            clickButton(){
+                this.count +=1
+            }
+        }
+    }
+            Vue.createApp(App).mount("#Application")
+</script>
+</body>
+</html>

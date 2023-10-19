@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "Application" style="text-align: center;">
+  <h1>{{title}}</h1>
+  <div v-if ="noLogin">账号：<input v-model="userName" type="text"/></div>
+  <div v-if ="noLogin">密码：<input v-model="password" type="password"/></div>
+  <div v-on:click="click" style="border-radius: 30px;width: 100px;margin:20px auto;
+    color:white;background-color: blue;">{{buttonTitle}}</div>
+</div>
+</body>
+<script>
+  const App ={
+    data(){
+      return{
+        title:"请登录",
+        noLogin:true,
+        userName:"",
+        password:"",
+        buttonTitle:"登录"
+      }
+    },
+    methods: {
+      click() {
+        if (this.noLogin) {
+          this.login()
+        } else {
+          this.logout()
+        }
+      },
+      //登录
+      login() {
+        //判断账号和密码是否为空。
+        if (this.userName.length > 0 && this.password.length > 0) {
+          //登录提示后刷新页面
+          alert(`userName:${this.userName}password:${this.password}`)
+          this.noLogin = false
+          this.title = `欢迎:${this.userName}`
+          this.buttonTitle = "注销"
+          this.userName = ""
+          this.password = ""
+        } else {
+          alert("请输入账号密码")
+        }
+      },
+      //登出
+      logout(){
+        //清空数据
+        this.noLogin = true
+        this.title = `未登录`
+        this.buttonTitle = "登录"
+      }
+    }
+  }
+  Vue.createApp(App).mount("#Application")
+</script>
+</html>

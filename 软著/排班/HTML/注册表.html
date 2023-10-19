@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>用户统一注册</title>
+  <link rel="register" href="register.css">
+  <style>
+    body {
+      background-color: rgb(209, 213, 219);
+      display: flex;
+      background-image:url("微信图片_20230214120223.jpg");
+      background-repeat: no-repeat;
+      background-size:cover ;
+      height: 100vh;
+      align-items: center;
+    }
+    .inputText{
+      width: 500px;
+      height: 50px;
+      line-height: 30px;
+      font-size: 30px;
+      padding-left: 30px;
+      border-radius: 50px;
+      background-color: gainsboro;
+      border: none;
+
+    }
+    .inputText:focus{
+      outline: none;
+      background-color: #00fda2;
+    }
+    .dateinformation{
+      right: 30%;
+      position: absolute;
+      width: 600px;
+      min-height: 700px;
+      background: rgba(255, 255, 255);
+      display: block;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+    .dateinformation input[type="button"]{
+      background: #00e0fe;
+      color: #00fdef;
+      width: 150px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 10px;
+      height:40px;
+
+border-style: none;
+     right: 300px;
+    }
+    .dateinformation p{
+      color: black;
+      text-align: left;
+    }
+    .provide{
+      text-align: center;
+    }
+    select{
+      height: 50px;
+      border-radius: 10px;
+    }
+    .dateinformation .register{
+      text-align: center;
+      border-style: none;
+    }
+  </style>
+</head>
+<body>
+<div class="dateinformation">
+<form action="" method="post">
+
+  <p class="name">姓名</p>
+  <input type="text" class="inputText"><br>
+  <p class="name">年龄</p>
+  <input type="text" class="inputText"><br>
+  <p class="name">性别</p>
+  <input type="radio" name="sex" value="boy">男
+  <input type="radio" name="sex" value="girl">女
+  <br>
+    <p class="name">电话</p>
+    <input type="text" class="inputText" id="phonenumber">
+  <p class="name">邮箱</p>
+  <input type="text" class="inputText" id="email">
+  <p class="name">密码</p>
+  <input type="text" class="inputText" id="pwd">
+  <p class="name">所在门店及身份</p>
+  <select>
+  <option value="store-1">XXX</option>
+  <option value="store-2" selected>XXX门店</option>
+  <option value="store-3">XXX</option>
+</select>
+  <select>
+    <option  id="shop assistant" value="beijing" selected>店员</option>
+    <option  id="boss" value="boss" >老板</option>
+    <option id="manger" value="manger">经理</option>
+  </select>
+  <div class="register">
+  <a href="#">
+    <input type="button" value="注册" onclick="reload()">
+  </a>
+
+  </div>
+
+  </form>
+</div>
+<script>
+    document.getElementById("email").onblur=function (){
+        var email = document.getElementById("email").value;
+
+        if (email == "") {
+            alert("Email地址不能为空") ;
+        }
+        if (email !== "") {
+            if (email.indexOf("@") == -1 & email.indexOf(".") == -1) {
+                alert("Email地址格式不正确，必须包含@ .");
+            }
+
+        }
+    }
+    document.getElementById("pwd").onblur=function () {
+        var pwd = document.getElementById("pwd").value;
+
+
+        if (pwd == "") {
+            //使用innerHTML属性设置<span>标签中的内容
+            alert("密码不能为空");
+
+        } else {
+            if (pwd.length < 6) {
+                alert("密码必须大于6个字符");
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+    background-color: rgb(209, 213, 219);
+    display: flex;
+    background-image:url("微信图片_20230214120223.jpg");
+
+    height: 100vh;
+    align-items: center;
+}
+.inputText{
+    width: 500px;
+    height: 50px;
+    line-height: 30px;
+    font-size: 30px;
+    padding-left: 30px;
+    border-radius: 50px;
+    background-color: gainsboro;
+    border: none;
+
+}
+.inputText:focus{
+    outline: none;
+    background-color: #00fda2;
+}
+.dateinformation{
+    right: 30%;
+    position: absolute;
+    width: 600px;
+    min-height: 700px;
+    background: rgba(255, 255, 255);
+    display: block;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+.dateinformation input[type="submit"]{
+    background: #00e0fe;
+    color: #00fdef;
+    max-width: 150px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    right: 50%;
+    text-align: center;
+    line-height:20px;
+    height:40px;
+    padding:0px;
+    border:0px;
+}
+.dateinformation p{
+    color: black;
+    text-align: left;
+}
+.provide{
+    text-align: center;
+}
